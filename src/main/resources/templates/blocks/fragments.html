@@ -51,18 +51,7 @@
                 <li class="nav-item"><a class="nav-link waves-effect rounded"
                                         href="/category">[[#{navbar.category}]]</a></li>
             </ul>
-            <ul class="navbar-nav mr-auto ml-auto">
-                <li class="custom_item">
-                    <form class="form-inline" th:action="@{/search}" method="get">
-                        <div class="search-box">
-                            <button type="submit" class="btn-search" onclick="this.blur();"><i
-                                    class="fas fa-search"></i></button>
-                            <input type="text" name="keyword"
-                                   class="input-search" placeholder="Type to Search..." required/>
-                        </div>
-                    </form>
-                </li>
-            </ul>
+            
             <!-- Right -->
             <ul class="navbar-nav nav-flex-icons">
                 <li class="nav-item">
@@ -102,19 +91,19 @@
                 </li>
                 <!--GitHub, linked ect icons-->
                 <li class="nav-item">
-                    <a href="https://github.com/SEM24" class="nav-link waves-effect rounded">
+                    <a href="https://github.com/Ali-Bougassaa" class="nav-link waves-effect rounded">
                         <span class="fab fa-github"></span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://www.linkedin.com/in/samir-homsi-kak" class="nav-link waves-effect rounded">
+                    <a href="https://www.linkedin.com/in/ali-bougassaa/" class="nav-link waves-effect rounded">
                         <span class="fab fa-linkedin"></span>
                     </a>
                 </li>
                 <div class="language_selector">
                     <a class="custom_link waves-effect rounded" th:href="@{'?lang=en'}">EN</a>
                     <div class="vertical-line" style="height: 25px;"></div>
-                    <a class="custom_link waves-effect rounded" th:href="@{'?lang=uk'}">UA</a>
+                    <a class="custom_link waves-effect rounded" th:href="@{'?lang=fr'}">FR</a>
                 </div>
             </ul>
         </div>
@@ -177,19 +166,19 @@
                 </li>
                 <!--GitHub, linked ect icons-->
                 <li class="nav-item">
-                    <a href="https://github.com/SEM24" class="nav-link waves-effect rounded">
+                    <a href="https://github.com/Ali-Bougassaa" class="nav-link waves-effect rounded">
                         <span class="fab fa-github"></span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://www.linkedin.com/in/samir-homsi-kak" class="nav-link waves-effect rounded">
+                    <a href="https://www.linkedin.com/in/ali-bougassaa/" class="nav-link waves-effect rounded">
                         <span class="fab fa-linkedin"></span>
                     </a>
                 </li>
                 <div class="language_selector">
                     <a class="custom_link waves-effect rounded" th:href="@{'/admin?lang=en'}">EN</a>
                     <div class="vertical-line" style="height: 25px;"></div>
-                    <a class="custom_link waves-effect rounded" th:href="@{'/admin?lang=uk'}">UA</a>
+                    <a class="custom_link waves-effect rounded" th:href="@{'/admin?lang=fr'}">FR</a>
                 </div>
             </ul>
         </div>
@@ -209,16 +198,16 @@
             <!--Grid column-->
             <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
                 <h5 class="text-uppercase mb-4">[[#{footer.titleAbout}]]</h5>
-                <p><strong>SENKO</strong> [[#{footer.textAbout}]]</p>
+                <p><strong>Smart Student Shop</strong> [[#{footer.textAbout}]]</p>
 
                 <!-- Social icons-->
                 <div class="mt-4">
                     <!--GitHub-->
-                    <button onclick="location.href='https://github.com/SEM24'" type="button"
+                    <button onclick="location.href='https://github.com/Ali-Bougassaa'" type="button"
                             class="btn btn-circle btn-md">
                         <em class="fab fa-github fa-lg"></em></button>
                     <!-- Linkedin -->
-                    <button onclick="location.href='https://www.linkedin.com/in/samir-homsi-kak'" type="button"
+                    <button onclick="location.href='https://www.linkedin.com/in/ali-bougassaa/'" type="button"
                             class="btn btn-circle btn-md">
                         <em class="fab fa-linkedin fa-lg"></em></button>
                 </div>
@@ -235,11 +224,11 @@
                     </li>
                     <li class="mb-3">
                         <span class="fa-li"><em class="fas fa-envelope"></em></span><span
-                            class="ms-2">senkostore@outlook.com</span>
+                            class="ms-2">smartstudentshop@outlook.com</span>
                     </li>
                     <li class="mb-3">
                         <span class="fa-li"><em class="fas fa-phone"></em></span><span
-                            class="ms-2">+380(93)87-35-222</span>
+                            class="ms-2">+33 777 72 59 67</span>
                     </li>
                 </ul>
             </div>
@@ -248,17 +237,18 @@
             <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
                 <h5 class="text-uppercase mb-4">[[#{footer.findUs}]]</h5>
                 <iframe class="google_map rounded"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20515.64968586056!2d36.26422165814631!3d50.002803835495385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4127a0de6da556e3%3A0x9ef00b69907b366e!2z0JHQsNGA0LDQsdCw0YjQvtCy0L4!5e0!3m2!1sru!2snl!4v1660918084998!5m2!1sru!2snl"
-                        allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2791.663801898873!2d4.398927915495993!3d45.43459213820195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe56e8eeb120c5f12!2sLa%20Cit%C3%A9%20du%20design!5e0!3m2!1sen!2sfr!4v1660918084998!5m2!1sen!2sfr"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
+
+
         </div>
     </div>
     <!-- Grid container -->
 
     <!-- Copyright -->
     <div class="text-center copyright p-3">
-        <span class="credit">[[#{footer.created}]] <a href="https://github.com/SEM24">SEM</a> | </span>
+        <span class="credit">[[#{footer.created}]] <a href="https://www.linkedin.com/in/ali-bougassaa/">Ali</a> | </span>
         <span class="far fa-copyright"></span><span> [[#{footer.copyright}]]</span>
     </div>
 </footer>
@@ -363,7 +353,7 @@ but can be also used in another admin pages if you modify code to sort and searc
 <!--Addition footer for checkout and admin-->
 <div th:fragment="additional_footer" class="text-center copyright mt-5 p-4">
     <hr/>
-    <span class="credit">[[#{footer.created}]] <a href="https://github.com/SEM24">SEM</a> | </span>
+    <span class="credit">[[#{footer.created}]] <a href="https://www.linkedin.com/in/ali-bougassaa/">Ali</a> | </span>
     <span class="far fa-copyright"></span><span> [[#{footer.copyright}]]</span>
 </div>
 

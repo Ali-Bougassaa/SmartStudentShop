@@ -98,5 +98,5 @@ function updateTotal() {
     $(".productSubtotal").each(function (index, element) {
         total = total + parseFloat(element.innerHTML);
     });
-    $("#totalAmount").text(total + "\u20B4");
+    $("#totalAmount").text(total + "\u20AC");
 }

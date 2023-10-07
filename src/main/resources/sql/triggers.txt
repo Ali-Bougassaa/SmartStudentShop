@@ -20,8 +20,8 @@ CREATE TRIGGER afterUpdOrdersInsDel
 AFTER UPDATE on orders
 FOR EACH ROW
 BEGIN
-IF NEW.order_status = 'Оплачено' THEN
-INSERT INTO delivery(orders_id, status) values(OLD.id, 'Обработка');
+IF NEW.order_status = 'PAID' THEN
+INSERT INTO delivery(orders_id, status) values(OLD.id, 'PROCESSING');
 END IF;
 END//
 DELIMITER ;
@@ -31,8 +31,8 @@ DELIMITER //
 CREATE TRIGGER afterInsOrdersInsDel AFTER INSERT on orders
 FOR EACH ROW
 BEGIN
-IF NEW.order_status = 'Оплачено' THEN
-INSERT INTO delivery(orders_id, status) values(NEW.id, 'Обработка');
+IF NEW.order_status = 'PAID' THEN
+INSERT INTO delivery(orders_id, status) values(NEW.id, 'PROCESSING');
 END IF;
 END//
 DELIMITER ;

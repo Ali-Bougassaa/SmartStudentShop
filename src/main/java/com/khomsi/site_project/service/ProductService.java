@@ -34,7 +34,7 @@ public class ProductService implements IProductService {
 
     @Override
     public Page<Product> listByPage(int pageNum, String sortField, String sortDir, String keyword,
-                                    Integer categoryId) {
+            Integer categoryId) {
         Sort sort = Sort.by(sortField);
         sort = sortDir.equals("asc") ? sort.ascending() : sort.descending();
 
@@ -67,13 +67,13 @@ public class ProductService implements IProductService {
     @Override
     public List<Product> getRandomAmountOfProducts() throws ProductNotFoundException {
         List<Product> productList = productRepository.findAllByCategoryId(4);
-        if (productList.isEmpty()) {
-            throw new ProductNotFoundException("Couldn't find any product in DB");
+        if (productList.size() < 8) {
+            // Gérer le cas où la liste n'a pas assez d'éléments
+            return Collections.emptyList(); // ou retourner une liste vide
         }
         Collections.shuffle(productList);
         int randomSeriesLength = 8;
         return productList.subList(0, randomSeriesLength);
-
     }
 
     @Override
@@ -119,7 +119,8 @@ public class ProductService implements IProductService {
         boolean isCreatingNew = (id == null || id == 0);
         Product productByName = productRepository.findByTitle(title);
         if (isCreatingNew) {
-            if (productByName != null) return "Duplicate";
+            if (productByName != null)
+                return "Duplicate";
         } else {
             if (productByName != null && !Objects.equals(productByName.getId(), id)) {
                 return "Duplicate";

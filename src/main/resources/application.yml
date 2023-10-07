@@ -1,13 +1,22 @@
 spring:
   datasource:
-    username: spring
-    url: jdbc:mysql://localhost:3306/web_store_test?useSSL=false
-    password: spring
+    username: root
+    url: jdbc:mysql://localhost:3306/web_store_test?allowPublicKeyRetrieval=true&useSSL=false
+    password: Bougassaa2014!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+
   mail:
     host: smtp-mail.outlook.com
     port: 587
-    username: senkoShop@outlook.com
-    password: Midostar10035
+    username: smartstudentshop@outlook.com
+    password: ssshop2024
     properties:
       mail:
         smtp:
@@ -15,6 +24,8 @@ spring:
           starttls:
             enable: true
 
+  thymeleaf:
+    cache: false
+
 server:
   port: 8084
-

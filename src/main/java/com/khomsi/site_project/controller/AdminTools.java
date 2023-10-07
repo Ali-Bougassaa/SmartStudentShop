@@ -34,10 +34,11 @@ public class AdminTools {
     }
 
     /*
-    Added this method to check unique login for user while he's registration
-    You can modify it to have more unique fields.
-    (if you need unique fields in admin panel for user, change another methods like isLoginUnique)
-    */
+     * Added this method to check unique login for user while he's registration
+     * You can modify it to have more unique fields.
+     * (if you need unique fields in admin panel for user, change another methods
+     * like isLoginUnique)
+     */
     @PostMapping("/user/check")
     public @ResponseBody String checkLoginRegistration(@Param("login") String login) {
         return userService.checkLoginRegistration(login) ? "OK" : "Duplicate";
@@ -45,7 +46,7 @@ public class AdminTools {
 
     @PostMapping("/categories/check")
     public @ResponseBody String checkCategory(@Param("id") Integer id, @Param("title") String title,
-                                              @Param("alias") String alias) {
+            @Param("alias") String alias) {
         return categoryService.checkCategoryTitle(id, title, alias);
     }
 
@@ -54,7 +55,7 @@ public class AdminTools {
         return vendorService.checkVendorTitle(id, title);
     }
 
-    //Controller in admin panel for users
+    // Controller in admin panel for users
     @GetMapping("/admin/users/page/{pageNum}")
     public String listUsersByPage(@PathVariable(name = "pageNum") int pageNum, Model model) {
         Page<User> page = userService.listByPage(pageNum);
@@ -70,7 +71,7 @@ public class AdminTools {
         return "admin/user/users";
     }
 
-    //Controller in admin panel for vendors
+    // Controller in admin panel for vendors
     @GetMapping("/admin/vendors/page/{pageNum}")
     public String listVendorsByPage(@PathVariable(name = "pageNum") int pageNum, Model model) {
         Page<Vendor> page = vendorService.listByPage(pageNum);
@@ -86,7 +87,7 @@ public class AdminTools {
         return "admin/vendor/vendors";
     }
 
-    //Controller in admin panel for orders
+    // Controller in admin panel for orders
     @GetMapping("/admin/orders/page/{pageNum}")
     public String listOrdersByPage(@PathVariable(name = "pageNum") int pageNum, Model model) {
         Page<Order> page = ordersService.listByPage(pageNum);
@@ -102,8 +103,7 @@ public class AdminTools {
         return "admin/orders/orders";
     }
 
-
-    //Controller in admin panel for categories to display pagination
+    // Controller in admin panel for categories to display pagination
     @GetMapping("/admin/categories/page/{pageNum}")
     public String listCategoriesByPage(@PathVariable(name = "pageNum") int pageNum, Model model) {
         CategoryPageInfo pageInfo = new CategoryPageInfo();
@@ -126,13 +126,13 @@ public class AdminTools {
         return "admin/category/categories";
     }
 
-    //Controller in admin panel for products
+    // Controller in admin panel for products
     @GetMapping("/admin/products/page/{pageNum}")
     public String listProductsByPage(@PathVariable(name = "pageNum") int pageNum, Model model,
-                                     @Param("sortField") String sortField,
-                                     @Param("sortDir") String sortDir,
-                                     @Param("keyword") String keyword,
-                                     @Param("categoryId") Integer categoryId) {
+            @Param("sortField") String sortField,
+            @Param("sortDir") String sortDir,
+            @Param("keyword") String keyword,
+            @Param("categoryId") Integer categoryId) {
         Page<Product> page = productService.listByPage(pageNum, sortField, sortDir, keyword, categoryId);
         List<Category> listCategories = categoryService.listCategoriesUserInForm();
 
@@ -146,7 +146,8 @@ public class AdminTools {
         }
         String reverseSortDir = sortDir.equals("asc") ? "desc" : "asc";
 
-        if (categoryId != null) model.addAttribute("categoryId",categoryId);
+        if (categoryId != null)
+            model.addAttribute("categoryId", categoryId);
 
         pageCountMethod(pageNum, model, page, startCount, endCount);
         model.addAttribute("products", productList);
@@ -160,7 +161,7 @@ public class AdminTools {
     }
 
     public void pageCountMethod(@PathVariable("pageNum") int pageNum, Model model, Page<?> page,
-                                long startCount, long endCount) {
+            long startCount, long endCount) {
         if (endCount > page.getTotalElements()) {
             endCount = page.getTotalElements();
         }

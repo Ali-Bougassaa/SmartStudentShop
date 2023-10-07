@@ -4,9 +4,9 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### STS ###
-.apt_generated
-.classpath
+### STS ### 
+.apt_generated 
+.classpath  
 .factorypath
 .project
 .settings
@@ -17,17 +17,17 @@ target/
 .idea
 *.iws
 *.iml
-*.ipr
+*.ipr 
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+### NetBeans ### 
+/nbproject/private/  
+/nbbuild/ 
+/dist/  
+/nbdist/ 
+/.nb-gradle/ 
+build/ 
+!**/src/main/**/build/ 
+!**/src/test/**/build/ 
 
 ### VS Code ###
 .vscode/

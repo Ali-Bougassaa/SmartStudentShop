@@ -56,8 +56,8 @@ public class OrderController {
             model.addAttribute("order", new Order());
             model.addAttribute("user", user);
             model.addAttribute("orderBaskets", orderBaskets);
-            model.addAttribute("waiting", OrderType.Ожидание);
-            model.addAttribute("payed", OrderType.Оплачено);
+            model.addAttribute("waiting", OrderType.PENDING);
+            model.addAttribute("payed", OrderType.PAID);
         } else {
             model.addAttribute("error", new NotFoundException("Orders for payment was not found"));
             return "/error/404";
@@ -67,7 +67,7 @@ public class OrderController {
 
     @PostMapping("/payment")
     public String saveOrder(Order newOrder, Principal principal,
-                            Model model, RedirectAttributes attributes) {
+            Model model, RedirectAttributes attributes) {
         User user = userService.getUserByLogin(principal.getName());
         List<OrderBasket> orderBaskets = user.getOrderBaskets();
         newOrder.setUser(user);
@@ -85,14 +85,14 @@ public class OrderController {
 
     /*
      * Method that creates the email with orders that will be sent to user's email
-     * */
+     */
     private void sendVerificationEmail(Order order)
             throws MessagingException, UnsupportedEncodingException {
 
-        String shipping = order.getShippingType() == 0 ? "Ukr poshta" : "Nova poshta";
+        String shipping = order.getShippingType() == 0 ? "La Poste" : "Arcep";
 
-        String subject = "Thank you for ordering in SENKO";
-        String senderName = "Senko Store";
+        String subject = "Thank you for ordering in Smart Student Shop";
+        String senderName = "Smart Student Shop";
         String mailContent = "<p><b>Order number:</b> " + order.getId() + "</p>";
         mailContent += "<p><b>Payment:</b> " + order.getOrderStatus() + "</p>";
         mailContent += "<p><b>Shipping:</b> " + shipping + "</p>";
@@ -105,7 +105,7 @@ public class OrderController {
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
-        helper.setFrom("senkoShop@outlook.com", senderName);
+        helper.setFrom("smartstudentshop@outlook.com", senderName);
         helper.setTo(order.getUser().getEmail());
         helper.setSubject(subject);
         helper.setText(mailContent, true);

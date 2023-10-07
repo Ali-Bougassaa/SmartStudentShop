@@ -1,9 +1,9 @@
 package com.khomsi.site_project.entity;
 
 public enum OrderType {
-    Оплачено,
-    Отмена,
-    Ожидание,
-    Обработка,
-    Выполнен
-    }
+    PAID,
+    CANCELLED,
+    PENDING,
+    PROCESSING,
+    COMPLETED
+}

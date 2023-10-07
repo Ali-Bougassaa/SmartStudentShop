@@ -55,7 +55,7 @@ public class MainController {
 
     @GetMapping("/basket")
     public String showShoppingCard(Model model,
-                                   Principal principal) {
+            Principal principal) {
         if (principal != null) {
             List<OrderBasket> orderBaskets = userService.getUserByLogin(principal.getName()).getOrderBaskets();
             model.addAttribute("orderBaskets", orderBaskets);

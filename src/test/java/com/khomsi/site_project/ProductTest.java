@@ -20,7 +20,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-//@Rollback(value = false)
+// @Rollback(value = false)
 public class ProductTest {
     @Autowired
     private ProductRepository productRepo;
@@ -83,9 +83,9 @@ public class ProductTest {
     }
 
     @Test
-    public void testSearchProduct(){
+    public void testSearchProduct() {
         String keyword = "Apple";
-        int pageNum =  0;
+        int pageNum = 0;
         int pageSize = 4;
         Pageable pageable = PageRequest.of(pageNum, pageSize);
         Page<Product> page = productRepo.findAll(keyword, pageable);
